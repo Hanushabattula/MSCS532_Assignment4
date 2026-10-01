@@ -1,0 +1,145 @@
+﻿=================================================================
+SORTING CORRECTNESS TESTS
+=================================================================
+Original Array:        [12, 4, 7, 1, 9, 3, 10]
+Expected Result:       [1, 3, 4, 7, 9, 10, 12]
+Heapsort Result:       [1, 3, 4, 7, 9, 10, 12]
+Randomized Quicksort:  [1, 3, 4, 7, 9, 10, 12]
+Merge Sort Result:     [1, 3, 4, 7, 9, 10, 12]
+
+Heapsort correct: True
+Quicksort correct: True
+Merge Sort correct: True
+
+=================================================================
+EDGE CASE TESTS
+=================================================================
+Empty list: True
+One element: True
+Two elements: True
+All duplicates: True
+Already sorted: True
+Reverse sorted: True
+Negative numbers: True
+
+=================================================================
+SORTING PERFORMANCE COMPARISON
+Median of 5 runs
+=================================================================
+
+Input Size: 1000
+
+Random Dataset:
+Heapsort:             0.003499 seconds
+Randomized Quicksort: 0.002447 seconds
+Merge Sort:           0.002794 seconds
+
+Sorted Dataset:
+Heapsort:             0.003634 seconds
+Randomized Quicksort: 0.002365 seconds
+Merge Sort:           0.001999 seconds
+
+Reverse Sorted Dataset:
+Heapsort:             0.003137 seconds
+Randomized Quicksort: 0.002370 seconds
+Merge Sort:           0.002039 seconds
+
+Input Size: 5000
+
+Random Dataset:
+Heapsort:             0.022871 seconds
+Randomized Quicksort: 0.014575 seconds
+Merge Sort:           0.018419 seconds
+
+Sorted Dataset:
+Heapsort:             0.025153 seconds
+Randomized Quicksort: 0.021209 seconds
+Merge Sort:           0.015693 seconds
+
+Reverse Sorted Dataset:
+Heapsort:             0.029582 seconds
+Randomized Quicksort: 0.015328 seconds
+Merge Sort:           0.011862 seconds
+
+Input Size: 10000
+
+Random Dataset:
+Heapsort:             0.049926 seconds
+Randomized Quicksort: 0.037263 seconds
+Merge Sort:           0.038885 seconds
+
+Sorted Dataset:
+Heapsort:             0.054023 seconds
+Randomized Quicksort: 0.031458 seconds
+Merge Sort:           0.024143 seconds
+
+Reverse Sorted Dataset:
+Heapsort:             0.046211 seconds
+Randomized Quicksort: 0.030230 seconds
+Merge Sort:           0.026292 seconds
+
+Input Size: 20000
+
+Random Dataset:
+Heapsort:             0.111712 seconds
+Randomized Quicksort: 0.068510 seconds
+Merge Sort:           0.081251 seconds
+
+Sorted Dataset:
+Heapsort:             0.113916 seconds
+Randomized Quicksort: 0.066440 seconds
+Merge Sort:           0.051981 seconds
+
+Reverse Sorted Dataset:
+Heapsort:             0.100706 seconds
+Randomized Quicksort: 0.063397 seconds
+Merge Sort:           0.054232 seconds
+
+=================================================================
+PRIORITY QUEUE OPERATION TESTS
+=================================================================
+Queue initially empty: True
+
+Heap after insertions:
+[Task(id=T2, priority=5, arrival=1, deadline=8), Task(id=T4, priority=4, arrival=3, deadline=12), Task(id=T3, priority=2, arrival=2, deadline=15), Task(id=T1, priority=3, arrival=0, deadline=10)]
+
+Increase T3 priority from 2 to 6:
+Operation successful: True
+[Task(id=T3, priority=6, arrival=2, deadline=15), Task(id=T4, priority=4, arrival=3, deadline=12), Task(id=T2, priority=5, arrival=1, deadline=8), Task(id=T1, priority=3, arrival=0, deadline=10)]
+
+Decrease T2 priority from 5 to 1:
+Operation successful: True
+[Task(id=T3, priority=6, arrival=2, deadline=15), Task(id=T4, priority=4, arrival=3, deadline=12), Task(id=T2, priority=1, arrival=1, deadline=8), Task(id=T1, priority=3, arrival=0, deadline=10)]
+
+Extraction order:
+Task(id=T3, priority=6, arrival=2, deadline=15)
+Task(id=T4, priority=4, arrival=3, deadline=12)
+Task(id=T1, priority=3, arrival=0, deadline=10)
+Task(id=T2, priority=1, arrival=1, deadline=8)
+
+Extract from empty queue returns None: True
+
+=================================================================
+PRIORITY SCHEDULER SIMULATION
+=================================================================
+Time 0: Job-A arrived (priority 2)
+Time 0: Processing Job-A (priority 2)
+Time 1: Job-B arrived (priority 5)
+Time 1: Job-C arrived (priority 3)
+Time 1: Processing Job-B (priority 5)
+Time 2: Job-D arrived (priority 4)
+Time 2: Processing Job-D (priority 4)
+Time 3: Job-E arrived (priority 1)
+Time 3: Processing Job-C (priority 3)
+Time 4: Processing Job-E (priority 1)
+
+Scheduler Results
+Task | Priority | Arrival | Waiting | Completion | Deadline | Met Deadline
+Job-A |        2 |       0 |       0 |          1 |        5 | True
+Job-B |        5 |       1 |       0 |          2 |        4 | True
+Job-D |        4 |       2 |       0 |          3 |        7 | True
+Job-C |        3 |       1 |       2 |          4 |        3 | False
+Job-E |        1 |       3 |       1 |          5 |        4 | False
+
+Tasks meeting deadlines: 3/5
+Average waiting time: 0.60 time units
